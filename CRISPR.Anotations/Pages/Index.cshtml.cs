@@ -19,7 +19,7 @@ namespace CRISPR.Anotations.Pages
         [BindProperty]
         public FileUpload FileUpload { get; set; }
         
-        public async Task<IAsyncResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
