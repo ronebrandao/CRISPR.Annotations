@@ -1,18 +1,18 @@
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-namespace CRISPR.Anotations.Models 
+namespace CRISPR.Anotations.Models
 {
 
     public class FileUpload
     {
         [Required]
-        [Display(Name="Titile")]
+        [Display(Name = "Title")]
         [StringLength(60, MinimumLength = 3)]
-        public string Titile { get; set;}
+        public string Title { get; set; }
 
         [Required]
-        [Display(Name="Annotations")]
+        [Display(Name = "Annotations")]
         public IFormFile Annotations { get; set; }
 
     }
