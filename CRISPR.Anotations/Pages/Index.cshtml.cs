@@ -22,10 +22,9 @@ namespace CRISPR.Anotations.Pages
 
         [BindProperty]
         public Annotation Annotation { get; set; }
-        
+
         public IActionResult OnPost()
         {
-
             var annotations = FileHelpers.ProcessFormFile(FileUpload.Annotations, ModelState, Annotation);
             annotations.Position = 0;
 

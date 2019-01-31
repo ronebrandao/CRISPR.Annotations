@@ -28,13 +28,12 @@ namespace CRISPR.Anotations
                 StringBuilder lista1 = new StringBuilder();
                 StringBuilder lista2 = new StringBuilder();
 
-               try  
-               {
-                   Stream stream = formFile.OpenReadStream();
+                try
+                {
+                    Stream stream = formFile.OpenReadStream();
 
                     if (Path.GetExtension(formFile.FileName) == ".xlsx")
                     {
-                            // modelState.AddModelError(formFile.Name, $"The {fieldDisplayName}file ({fileName}) must be a text file.");
                         XSSFWorkbook hssfwb = new XSSFWorkbook(stream);
                         sheet = hssfwb.GetSheetAt(0);
 
@@ -74,8 +73,8 @@ namespace CRISPR.Anotations
 
                     return ms;
 
-               }     
-               catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     // modelState.AddModelError(formFile.Name,
                     //     $"The {fieldDisplayName}file ({fileName}) upload failed. " +
@@ -85,7 +84,7 @@ namespace CRISPR.Anotations
 
             }
 
-           
+
             return null;
         }
 

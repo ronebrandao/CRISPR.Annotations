@@ -31,16 +31,15 @@
 
         <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto text-center">
-                <li class="nav-item"><a class="nav-link" asp-page="/Index">Início</a></li>
-                <li class="nav-item"><a class="nav-link" asp-page="/About">Sobre</a></li>
-                <li class="nav-item"><a class="nav-link" asp-page="/Contact">Contato</a></li>
+                <li class="nav-item"><a class="nav-link" lang="pt" asp-page="/Index">Início</a></li>
+                <li class="nav-item"><a class="nav-link" lang="pt" asp-page="/Autor">Autor</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="idioma" data-toggle="dropdown">
                         <span><img src="/images/language.svg" width="22px"/></span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="idioma">
-                        <a class="dropdown-item" href="#">Português</a>
-                        <a class="dropdown-item" href="#">English</a>
+                        <a class="dropdown-item" href="#" onclick="window.lang.change('pt'); return false;">Português</a>
+                        <a class="dropdown-item" href="#" onclick="window.lang.change('en'); return false;">English</a>
                     </div>
                 </li>
             </ul>
@@ -61,6 +60,8 @@
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/js.cookie.js"></script>
+        <script src="~/js/jquery-lang.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
@@ -76,7 +77,6 @@
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
                 crossorigin="anonymous">
         </script>
-
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 

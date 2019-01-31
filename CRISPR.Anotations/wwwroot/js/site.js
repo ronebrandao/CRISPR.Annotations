@@ -1,4 +1,7 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿var lang = new Lang();
 
-// Write your Javascript code.
+lang.dynamic('en', 'js/langpack/en.json');
+
+lang.init({
+    defaultLang: 'pt'
+});
