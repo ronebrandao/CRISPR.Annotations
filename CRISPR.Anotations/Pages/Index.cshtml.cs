@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using CRISPR.Anotations.Models;
 
+
 namespace CRISPR.Anotations.Pages
 {
     public class IndexModel : PageModel
@@ -18,22 +19,17 @@ namespace CRISPR.Anotations.Pages
 
         [BindProperty]
         public FileUpload FileUpload { get; set; }
+
+        [BindProperty]
+        public Annotation Annotation { get; set; }
         
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
 
-            var filePath = "filepathname";
+            var annotations = FileHelpers.ProcessFormFile(FileUpload.Annotations, ModelState, Annotation);
+            annotations.Position = 0;
 
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                await FileUpload.Annotations.CopyToAsync(fileStream);
-            }
-
-            return RedirectToPage(".Index");
+            return File(annotations, "application/octet-stream", "Annotations");
         }
 
     }

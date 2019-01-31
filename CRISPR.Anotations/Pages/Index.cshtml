@@ -11,19 +11,20 @@
             <h5>Selecione um arquivo do tipo .xls ou .xlsx</h2>
             <div class="form-group">
                 <label class="control-label">CRISPR</label>
-                <input class="form-control" placeholder="Grupo de Repetições"/>
+                <input asp-for="Annotation.CRISPRName" class="form-control" placeholder="Grupo de Repetições"/>
             </div>
             <div class="form-group">
                 <label class="control-label">Espaçador</label>
-                <input class="form-control" placeholder="Valor"/>
+                <input asp-for="Annotation.MicroorganismName" class="form-control" placeholder="Valor"/>
             </div>
             <div class="form-group">
                 <label class="control-label">Nome do Microorganismo</label>
-                <input class="form-control" placeholder="Nome"/>
+                <input asp-for="Annotation.Spacer" class="form-control" placeholder="Nome"/>
             </div>
             <div class="form-group">
-                <input type="file" class="form-control" style="height:auto"/>
+                <input asp-for="FileUpload.Annotations" type="file" class="form-control" style="height:auto"/>
             </div>
+            <input type="submit" class="btn btn-primary"/>
         </form>
     </div>
     <div class="col-md-6 text-justify">
