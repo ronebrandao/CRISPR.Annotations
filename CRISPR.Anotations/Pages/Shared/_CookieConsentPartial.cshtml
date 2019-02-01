@@ -8,7 +8,7 @@
 
 @if (showBanner)
 {
-    <nav id="cookieConsent" class="navbar navbar-default navbar-fixed-top" role="alert">
+    <!-- <nav id="cookieConsent" class="navbar navbar-default navbar-fixed-top" role="alert">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#cookieConsent .navbar-collapse">
@@ -37,5 +37,20 @@
                 document.querySelector("#cookieConsent").classList.add("hidden");
             }, false);
         })();
-    </script>
+    </script> -->
+    <div id="cookieConsent">
+      <!-- <p>Esse site faz o usu de cookies, voce concorda?</p> -->
+      <p>Mano oq e isso</p>
+      <button type="button" data-dismiss="alert" data-cookie-string="@cookieString">
+         <span aria-hidden="true">Accept</span>
+      </button>
+   </div>
+   <script>
+   (function () {
+      var button = document.querySelector("#cookieConsent button[data-cookie-string]");
+      button.addEventListener("click", function (event) {
+         document.cookie = button.dataset.cookieString;
+      }, false);
+   })();
+   </script>
 }
