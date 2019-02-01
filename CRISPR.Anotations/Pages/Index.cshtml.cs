@@ -10,6 +10,7 @@ using CRISPR.Anotations.Models;
 
 namespace CRISPR.Anotations.Pages
 {
+    [IgnoreAntiforgeryToken(Order = 1001)]
     public class IndexModel : PageModel
     {
         public void OnGet()
@@ -25,10 +26,10 @@ namespace CRISPR.Anotations.Pages
 
         public IActionResult OnPost()
         {
-            var annotations = FileHelpers.ProcessFormFile(FileUpload.Annotations, ModelState, Annotation);
+            var annotations = FileHelpers.ProcessFormFile(HttpContext.Request.Form.Files[0], ModelState, Annotation);
             annotations.Position = 0;
 
-            return File(annotations, "application/octet-stream", "Annotations");
+            return File(annotations, "application/octet-stream", "Annotations.zip");
         }
 
     }
