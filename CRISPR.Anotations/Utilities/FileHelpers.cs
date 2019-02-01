@@ -76,10 +76,9 @@ namespace CRISPR.Anotations
                 }
                 catch (Exception ex)
                 {
-                    // modelState.AddModelError(formFile.Name,
-                    //     $"The {fieldDisplayName}file ({fileName}) upload failed. " +
-                    //     $"Please contact the Help Desk for support. Error: {ex.Message}");
-                    // Log the exception
+                    modelState.AddModelError(formFile.Name,
+                      $"The file ({fileName}) upload failed. " +
+                      $"Please contact the Help Desk for support. Error: {ex.Message}");
                 }
 
             }
