@@ -14,11 +14,11 @@ using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 using System.Collections.Generic;
 
-namespace CRISPR.Anotations
+namespace CRISPR.Anotations.Utilities
 {
     public static class FileHelpers
     {
-        public static MemoryStream ProcessFormFile(IFormFile formFile, ModelStateDictionary modelState, Annotation annotation)
+        public static Stream ProcessFormFile(IFormFile formFile, ModelStateDictionary modelState, Annotation annotation)
         {
 
             if (formFile.Length > 0)
@@ -56,22 +56,12 @@ namespace CRISPR.Anotations
                         lista2.AppendLine(row.GetCell(2).ToString());
                     }
 
-                    byte[] byteLista1 = StringToByteArray(lista1.ToString());
-                    byte[] byteLista2 = StringToByteArray(lista2.ToString());
+                    List<ZipItem> items = new List<ZipItem>();
 
+                    items.Add(new ZipItem("CRISPR.fasta", lista1.ToString(), UTF8Encoding.UTF8));
+                    items.Add(new ZipItem("Espacador.fast", lista2.ToString(), UTF8Encoding.UTF8));
 
-                    var ms = new MemoryStream();
-
-                    using (var archive = new ZipArchive(ms, ZipArchiveMode.Create, true))
-                    {
-                        var ZipArchiveEntry = archive.CreateEntry("CRISPR.fasta", CompressionLevel.Fastest);
-                        using (var zipStream = ZipArchiveEntry.Open()) zipStream.Write(byteLista1, 0, byteLista1.Length);
-
-                        ZipArchiveEntry = archive.CreateEntry("Espacador.fasta", CompressionLevel.Fastest);
-                        using (var zipStream = ZipArchiveEntry.Open()) zipStream.Write(byteLista2, 0, byteLista2.Length);
-                    }
-
-                    return ms;
+                    return Zipper.Zip(items);
 
                 }
                 catch (Exception ex)
@@ -85,12 +75,6 @@ namespace CRISPR.Anotations
 
 
             return null;
-        }
-
-        private static byte[] StringToByteArray(string str)
-        {
-            var encoding = new System.Text.ASCIIEncoding();
-            return encoding.GetBytes(str);
         }
 
     }

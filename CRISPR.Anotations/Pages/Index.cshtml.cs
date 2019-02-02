@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using CRISPR.Anotations.Models;
+using CRISPR.Anotations.Utilities;
 
 
 namespace CRISPR.Anotations.Pages
@@ -27,7 +28,6 @@ namespace CRISPR.Anotations.Pages
         public IActionResult OnPost()
         {
             var annotations = FileHelpers.ProcessFormFile(HttpContext.Request.Form.Files[0], ModelState, Annotation);
-            annotations.Position = 0;
 
             return File(annotations, "application/octet-stream", "Annotations.zip");
         }
