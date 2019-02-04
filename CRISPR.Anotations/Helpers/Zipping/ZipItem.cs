@@ -1,7 +1,7 @@
 using System.IO;
 using System.Text;
 
-namespace CRISPR.Anotations.Utilities
+namespace CRISPR.Anotations.Helpers.Zipping
 {
     public class ZipItem
     {

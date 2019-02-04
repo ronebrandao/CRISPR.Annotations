@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using CRISPR.Anotations.Models;
-using CRISPR.Anotations.Utilities;
+using CRISPR.Anotations.Helpers;
 
 
 namespace CRISPR.Anotations.Pages

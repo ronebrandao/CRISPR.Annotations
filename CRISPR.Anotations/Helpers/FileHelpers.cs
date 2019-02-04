@@ -13,8 +13,9 @@ using NPOI.HSSF.UserModel;
 using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 using System.Collections.Generic;
+using CRISPR.Anotations.Helpers.Zipping;
 
-namespace CRISPR.Anotations.Utilities
+namespace CRISPR.Anotations.Helpers
 {
     public static class FileHelpers
     {

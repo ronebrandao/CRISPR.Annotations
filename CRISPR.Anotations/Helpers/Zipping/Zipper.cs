@@ -2,7 +2,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.IO.Compression;
 
-namespace CRISPR.Anotations.Utilities
+namespace CRISPR.Anotations.Helpers.Zipping
 {
     public static class Zipper
     {

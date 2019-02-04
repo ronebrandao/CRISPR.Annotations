@@ -10,7 +10,7 @@ window.onload = () => {
 
     let form = document.getElementById("form");
 
-    form.addEventListener('submit', (event) => {
+    form && form.addEventListener('submit', (event) => {
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
