@@ -1,16 +1,18 @@
 {
-    "token": {
-        "Início": "Home",
-        "Autor": "Author",
-        "Espaçador": "Spacer",
-        "Nome do Microorganismo": "Microorganism Name",
-        "Gerar Anotações": "Generate Annotations",
-        "O que é?": "What is it?",
-        "ferramenta": "Tool to create annotation of Repeats and Spacers of CRISPR arrangements in Fasta format. This tool was developed with the purpose of providing greater agility in performing repetitive tasks, and have multiple researchers save time during their research.",
-        "Selecione um arquivo do tipo .xls ou .xlsx": "Upload a file of type .xls or .xlsx",
-        "ajudar": "How can I help?",
-        "suporte": "Support this project, so more tools can be developed and research helped.",
-        "Estudante de Engenharia da Computação e desenvolvedor no": "Computer Engineering student and developer at ",
-        "Contato": "Contact"
-    }
+  "token": {
+    "Início": "Home",
+    "Autor": "Author",
+    "Espaçador": "Spacer",
+    "Nome do Microorganismo": "Microorganism Name",
+    "Gerar Anotações": "Generate Annotations",
+    "O que é?": "What is it?",
+    "ferramenta": "Tool to create annotation of Repeats and Spacers of CRISPR arrangements in Fasta format. This tool was developed with the purpose of providing greater agility in performing repetitive tasks, and have multiple researchers save time during their research.",
+    "Selecione um arquivo do tipo .xls ou .xlsx": "Upload a file of type .xls or .xlsx",
+    "ajudar": "How can I help?",
+    "suporte": "Support this project, so more tools can be developed and research helped.",
+    "Estudante de Engenharia da Computação e desenvolvedor no": "Computer Engineering student and developer at ",
+    "Contato": "Contact",
+    "Aceitar": "Accept",
+    "Esse site faz o uso de cookies, voce concorda?": "This site makes use of cookies, do you agree?"
+  }
 }
