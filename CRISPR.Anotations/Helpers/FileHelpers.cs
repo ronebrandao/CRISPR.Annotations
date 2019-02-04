@@ -60,7 +60,7 @@ namespace CRISPR.Anotations.Helpers
                     List<ZipItem> items = new List<ZipItem>();
 
                     items.Add(new ZipItem("CRISPR.fasta", lista1.ToString(), UTF8Encoding.UTF8));
-                    items.Add(new ZipItem("Espacador.fast", lista2.ToString(), UTF8Encoding.UTF8));
+                    items.Add(new ZipItem("Espacador.fasta", lista2.ToString(), UTF8Encoding.UTF8));
 
                     return Zipper.Zip(items);
 
