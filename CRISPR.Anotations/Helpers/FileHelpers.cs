@@ -25,45 +25,18 @@ namespace CRISPR.Anotations.Helpers
             if (formFile.Length > 0)
             {
                 var fileName = WebUtility.HtmlEncode(Path.GetFileName(formFile.FileName));
-                ISheet sheet = null;
-                StringBuilder lista1 = new StringBuilder();
-                StringBuilder lista2 = new StringBuilder();
 
                 try
                 {
-                    Stream stream = formFile.OpenReadStream();
-
-                    if (Path.GetExtension(formFile.FileName) == ".xlsx")
-                    {
-                        XSSFWorkbook hssfwb = new XSSFWorkbook(stream);
-                        sheet = hssfwb.GetSheetAt(0);
-
-                    }
-                    else if (Path.GetExtension(formFile.FileName) == ".xls")
-                    {
-                        HSSFWorkbook hssfwb = new HSSFWorkbook(stream); //This will read the Excel 97-2000 formats  
-                        sheet = hssfwb.GetSheetAt(0);
-                    }
-
-                    IRow headerRow = sheet.GetRow(0);
-
-                    for (int i = 0; i < sheet.LastRowNum; i++)
-                    {
-                        IRow row = sheet.GetRow(i);
-                        lista1.AppendLine($">CRISPR{annotation.CRISPRName}_{annotation.MicroorganismName}_Rep{i}");
-                        lista1.AppendLine(row.GetCell(1).ToString());
-
-                        lista2.AppendLine($">Espacador{annotation.Spacer}_{annotation.MicroorganismName}_Rep{i}");
-                        lista2.AppendLine(row.GetCell(2).ToString());
-                    }
+                    SheetHelper sheetHelper = new SheetHelper(formFile.FileName, annotation, formFile.OpenReadStream());
+                    sheetHelper.ReadSheet();
 
                     List<ZipItem> items = new List<ZipItem>();
 
-                    items.Add(new ZipItem("CRISPR.fasta", lista1.ToString(), UTF8Encoding.UTF8));
-                    items.Add(new ZipItem("Espacador.fasta", lista2.ToString(), UTF8Encoding.UTF8));
+                    items.Add(new ZipItem("CRISPR.fasta", sheetHelper.CRISPR.ToString(), Encoding.UTF8));
+                    items.Add(new ZipItem("Espacador.fasta", sheetHelper.Spacer.ToString(), Encoding.UTF8));
 
                     return Zipper.Zip(items);
-
                 }
                 catch (Exception ex)
                 {
@@ -73,7 +46,6 @@ namespace CRISPR.Anotations.Helpers
                 }
 
             }
-
 
             return null;
         }
